@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styles from './Card.module.scss';
 import { OpenWeatherResponse } from '@/types/CardType';
 import Button from '../Button/Button';
-import { useWeatherCards } from '@/app/store/store';
+import { useCurrenCard, useScreens, useWeatherCards } from '@/app/store/store';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -11,6 +11,8 @@ export default function Card({ data }: { data: OpenWeatherResponse }) {
   const removeCard = useWeatherCards((value) => value.removeCard);
   const refreshCard = useWeatherCards((value) => value.refreshCards);
   const [newData, setNewData] = useState<OpenWeatherResponse>();
+  const addFullInfoFromCard = useCurrenCard((value) => value.setCurrentCard);
+  const setScreen = useScreens((value) => value.setScreenState);
 
   const refreshData = () => {
     axios
@@ -26,7 +28,13 @@ export default function Card({ data }: { data: OpenWeatherResponse }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => {
+        addFullInfoFromCard(data);
+        setScreen(false);
+      }}
+    >
       <div className={styles.container__header}>
         <h1>{data.name}</h1>
       </div>

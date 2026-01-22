@@ -15,7 +15,12 @@ export default function Button({
     <div className={styles.container}>
       <button
         className={`${styles.container__button} ${variant == 'primary' ? styles['container__button--primary'] : styles['container__button--remove']}`}
-        onClick={() => onclick && onclick()}
+        onClick={(e) => {
+          e.stopPropagation();
+          if (onclick) {
+            onclick();
+          }
+        }}
       >
         {text}
       </button>

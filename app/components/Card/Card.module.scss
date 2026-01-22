@@ -32,5 +32,7 @@
     gap: 5px;
     flex-direction: column;
     margin-top: auto;
+    position: relative;
+    z-index: 10;
   }
 }

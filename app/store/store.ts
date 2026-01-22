@@ -1,4 +1,8 @@
-import { OpenWeatherResponse, ScreenInterface } from '@/types/CardType';
+import {
+  CurrentCardInterface,
+  OpenWeatherResponse,
+  ScreenInterface,
+} from '@/types/CardType';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
@@ -10,8 +14,13 @@ interface WeatherStore {
 }
 
 export const useScreens = create<ScreenInterface>((set) => ({
-  screenState: {},
+  screenState: true,
   setScreenState: (data) => set(() => ({ screenState: data })),
+}));
+
+export const useCurrenCard = create<CurrentCardInterface>((set) => ({
+  currentCard: <OpenWeatherResponse>{},
+  setCurrentCard: (data) => set(() => ({ currentCard: data })),
 }));
 
 export const useWeatherCards = create<WeatherStore>()(

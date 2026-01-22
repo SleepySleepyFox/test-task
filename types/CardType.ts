@@ -63,6 +63,11 @@ export interface OpenWeatherResponse {
 }
 
 export interface ScreenInterface {
-  screenState: OpenWeatherResponse | object;
-  setScreenState: (state: OpenWeatherResponse) => void;
+  screenState: boolean;
+  setScreenState: (state: boolean) => void;
+}
+
+export interface CurrentCardInterface {
+  currentCard: OpenWeatherResponse;
+  setCurrentCard: (state: OpenWeatherResponse) => void;
 }
