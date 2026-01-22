@@ -2,6 +2,7 @@
 .container {
   height: 300px;
   width: 200px;
+  padding: 5px;
   background: $color-elements-bg;
   border-radius: 5px;
   color: white;
@@ -16,5 +17,10 @@
   &__icon {
     height: 16px;
     width: 16px;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
   }
 }
