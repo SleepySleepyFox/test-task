@@ -62,7 +62,7 @@ export interface OpenWeatherResponse {
   cardID: string;
 }
 
-export type ScreenType = {
-  screenState: boolean;
-  setScreenState: (state: boolean) => void;
-};
+export interface ScreenInterface {
+  screenState: OpenWeatherResponse | object;
+  setScreenState: (state: OpenWeatherResponse) => void;
+}
