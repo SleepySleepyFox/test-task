@@ -1,5 +1,3 @@
-// types.ts
-
 export interface Coord {
   lon: number;
   lat: number;
@@ -61,4 +59,10 @@ export interface OpenWeatherResponse {
   id: number;
   name: string;
   cod: number;
+  cardID: string;
 }
+
+export type ScreenType = {
+  screenState: boolean;
+  setScreenState: (state: boolean) => void;
+};

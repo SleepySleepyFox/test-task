@@ -2,13 +2,10 @@ import { motion } from 'framer-motion';
 import styles from './Card.module.scss';
 import { OpenWeatherResponse } from '@/types/CardType';
 import Button from '../Button/Button';
+
 export default function Card({ data }: { data: OpenWeatherResponse }) {
   return (
-    <motion.div
-      className={styles.container}
-      initial={{ x: -5, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-    >
+    <div className={styles.container}>
       <div className={styles.container__header}>
         <h1>{data.name}</h1>
       </div>
@@ -26,7 +23,10 @@ export default function Card({ data }: { data: OpenWeatherResponse }) {
           <p>Max: {data.main.temp_max}</p>
         </div>
       </div>
-      <Button text={'Refresh'} />
-    </motion.div>
+
+      <div className={styles.container__btn}>
+        <Button text={'Refresh'} />
+      </div>
+    </div>
   );
 }

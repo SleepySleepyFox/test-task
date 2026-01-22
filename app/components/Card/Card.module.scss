@@ -7,6 +7,9 @@
   border-radius: 5px;
   color: white;
   font-size: small;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
 
   &__header {
     display: flex;
@@ -22,5 +25,9 @@
   &__main {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__btn {
+    margin-top: auto;
   }
 }
