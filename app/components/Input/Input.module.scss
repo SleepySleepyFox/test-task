@@ -23,5 +23,9 @@
 
   &__icon {
     color: $color-elements-bg;
+    transition: color 200ms ease-in-out;
+    &:hover {
+      color: $color-active;
+    }
   }
 }
