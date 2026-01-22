@@ -1,7 +1,4 @@
+import styles from './main.module.scss';
 export default function Home() {
-  return (
-    <div className="container">
-      <div className="container__item">HELLO</div>
-    </div>
-  );
+  return <div className={styles.container}></div>;
 }
