@@ -9,15 +9,18 @@ export default function MainScreen() {
   const cards = useWeatherCards((value) => value.cards);
   return (
     <div className={styles.container}>
-      {cards.map((weatherData) => (
-        <motion.div
-          key={weatherData.cardID}
-          initial={{ x: -5, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-        >
-          <Card data={weatherData} />
-        </motion.div>
-      ))}
+      {cards.map((weatherData) => {
+        console.log(weatherData);
+        return (
+          <motion.div
+            key={weatherData.cardID}
+            initial={{ x: -5, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+          >
+            <Card data={weatherData} />
+          </motion.div>
+        );
+      })}
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { LucidePlus } from 'lucide-react';
 import axios from 'axios';
 import { useWeatherCards } from '@/app/store/store';
 import { OpenWeatherResponse } from '@/types/CardType';
+import { v4 as uuidv4 } from 'uuid';
+
 export default function Input({
   placeholder = 'Placeholder',
 }: {
@@ -18,7 +20,7 @@ export default function Input({
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
       )
       .then((res) => {
-        setCards(res.data);
+        setCards({ ...res.data, cardID: uuidv4() });
       })
       .catch((err) => {
         console.error(err);

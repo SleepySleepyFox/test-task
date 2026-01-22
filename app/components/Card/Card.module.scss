@@ -9,7 +9,7 @@
   font-size: small;
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 
   &__header {
     display: flex;
@@ -28,6 +28,9 @@
   }
 
   &__btn {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
     margin-top: auto;
   }
 }
