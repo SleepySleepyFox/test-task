@@ -4,6 +4,7 @@ import { LucideX } from 'lucide-react';
 import { motion } from 'framer-motion';
 import React from 'react';
 import styles from './FullDataScreen.module.scss';
+import Button from '@/app/components/Button/Button';
 
 export default function FullDataScreen() {
   const setScreen = useScreens((value) => value.setScreenState);
@@ -16,14 +17,6 @@ export default function FullDataScreen() {
       animate={{ opacity: 1 }}
       className={styles.container}
     >
-      <div
-        onClick={() => {
-          console.log('first');
-          setScreen(true);
-        }}
-      >
-        <LucideX />
-      </div>
       <div>
         <div>
           <h1>{screen.name}</h1>
@@ -40,11 +33,18 @@ export default function FullDataScreen() {
         <div>Humidity: {screen.main?.humidity}</div>
         <div>Feels like: {screen.main?.feels_like}</div>
 
-        <div>
+        <div className={styles.container__wind}>
           <h3>Wind:</h3>
           <div>Deg: {screen.wind?.deg}</div>
           <div>Speed: {screen.wind?.speed}</div>
         </div>
+        <Button
+          variant="primary"
+          text="Leave"
+          onclick={() => {
+            setScreen(true);
+          }}
+        />
       </div>
     </motion.div>
   );

@@ -8,6 +8,7 @@ export default function Home() {
   const screen = useScreens((value) => value.screenState);
   return (
     <div className={styles.container}>
+      {!screen && <FullDataScreen />}
       <div className={styles.container__data}>
         {screen && (
           <div className={styles.container__input}>
@@ -15,7 +16,7 @@ export default function Home() {
           </div>
         )}
         <div className={styles.container__screens}>
-          {screen ? <MainScreen /> : <FullDataScreen />}
+          {screen && <MainScreen />}
         </div>
       </div>
     </div>
